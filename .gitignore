@@ -330,3 +330,7 @@ ASALocalRun/
 .mfractor/
 
 *.DS_Store
+
+# Spezifisch für die ESA
+*.mp3
+*.html
