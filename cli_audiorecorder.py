@@ -40,6 +40,8 @@ def thread_handler(url: str, filename: str, duration: int, blocksize: int):
         duration: Dauer der Anzeige in Sekunden
         blocksize: Anzahl der gleichzeitig ausgelesenen Bytes
     """
+
+    # Damit der media_downloader_thread dem display_progress_thread Statusupdates mitteilen kann
     success_flag = threading.Event()
     error_flag = threading.Event()
     thread1 = threading.Thread(target=media_downloader, kwargs={"url": url, "success_flag": success_flag, "error_flag": error_flag, "filename": filename,
@@ -71,7 +73,7 @@ def display_progress(success_flag: threading.Event, error_flag: threading.Event,
         time.sleep(1)
         t.update()
 
-    time.sleep(1)  # Damit Thread1 Zeit hat das Event zu setzen.
+    time.sleep(1)  # Damit media_downloader Zeit hat das Event zu setzen.
     if (success_flag.is_set()):
         t.colour = 'GREEN'
         t.write(f"Your download of {filename} was successful!")
