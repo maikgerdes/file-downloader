@@ -49,13 +49,13 @@ pip install tqdm argparse
 ## Anwendung starten
 
 ```bash
-python cli_audiorecorder.py <url> [--filename=<name>] [--duration=<sekunden>] [--blocksize=<bytes>]
+python cli_audiorecorder.py <url> [--filename=<name>] [--duration=<sekunden>] [--blocksize=<bytes>] [--filepath=<location>]
 ```
 
 Beispiel:
 
 ```bash
-python cli_audiorecorder.py https://moodle.oncampus.de/ --filename=index.html --duration=10 --blocksize=64
+python cli_audiorecorder.py https://moodle.oncampus.de/ --filename=index.html --duration=10 --blocksize=64 --filepath=files/html
 ```
 
 ## Parameter
@@ -64,6 +64,7 @@ python cli_audiorecorder.py https://moodle.oncampus.de/ --filename=index.html --
 - `--filename` (optional): Dateiname der Ausgabe, Standard: `myRadio.mp3`
 - `--duration` (optional): Laufzeit des Downloads in Sekunden, Standard: `30`
 - `--blocksize` (optional): Leseblockgroesse in Bytes, Standard: `64`
+- `--filepath` (optional): Relativer Pfad zur Datei von der Applikation
 
 ## Hinweise
 
