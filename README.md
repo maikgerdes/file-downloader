@@ -3,14 +3,6 @@
 Kleine Python-CLI zum Herunterladen von Streams und anderen Medieninhalten ueber eine URL.
 Die Anwendung schreibt die Daten in eine Datei und zeigt parallel den Fortschritt im Terminal.
 
-## Voraussetzungen
-
-- Docker (laufender Daemon)
-- Git
-- Eine der folgenden IDEs:
-	- VS Code mit Erweiterung "Dev Containers"
-	- PyCharm Professional mit Dev-Container-Unterstuetzung
-
 ## Projekt klonen
 
 ```bash
@@ -49,13 +41,14 @@ pip install tqdm argparse
 ## Anwendung starten
 
 ```bash
-python cli_audiorecorder.py <url> [--filename=<name>] [--duration=<sekunden>] [--blocksize=<bytes>] [--filepath=<location>]
+python cli_audiorecorder.py <url> [--filename=<name>] [--duration=<sekunden>] [--blocksize=<bytes>] [--filepath=<location>] [--historypath=<location>] [--showhistory=<bool>]
 ```
 
 Beispiel:
 
 ```bash
 python cli_audiorecorder.py https://moodle.oncampus.de/ --filename=index.html --duration=10 --blocksize=64 --filepath=files/html
+python cli_audiorecorder.py https://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3?aggregator=web --filepath=downloads --showhistory=True
 ```
 
 ## Parameter
@@ -64,7 +57,9 @@ python cli_audiorecorder.py https://moodle.oncampus.de/ --filename=index.html --
 - `--filename` (optional): Dateiname der Ausgabe, Standard: `myRadio.mp3`
 - `--duration` (optional): Laufzeit des Downloads in Sekunden, Standard: `30`
 - `--blocksize` (optional): Leseblockgroesse in Bytes, Standard: `64`
-- `--filepath` (optional): Relativer Pfad zur Datei von der Applikation
+- `--filepath` (optional): Relativer Pfad zur Datei von der Applikation, Standard: `./`
+- `--historypath` (optional): Relativer Pfad zur Download-Historie von der Applikation, Standard: `./`
+- `--showhistory` (optional): Ob die Download-Historie nach dem erfolgreichen Download ausgegeben werden soll, Standard: `False`
 
 ## Hinweise
 
